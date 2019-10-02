@@ -1,4 +1,4 @@
-package fbcmd4j;
+ package fbcmd4j;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,13 +56,14 @@ public class Main {
 						props = utils.loadConfigFile(CONFIG_DIR, CONFIG_FILE);
 						break;
 					case 1:
-						System.out.println("Mostrando NewsFeed...");
+						System.out.println("Obteniendo NewsFeed");
 						ResponseList<Post> feeds = fb.getFeed(userId,
 					            new Reading().limit(50));
+						saveFile("Feeds",feeds,scan);
 						break;
 					case 2:
 						System.out.println("Mostrando Wall...");
-						ResponseList<Post> feeds = fb.
+						
 						break;
 					case 3:
 						System.out.println("Escribe tu estado: ");
@@ -88,10 +89,10 @@ public class Main {
 			}
 		} catch (Exception e) {
 			logger.error(e);
-		}
+		} 
 	}
 	
-	public static void askToSaveFile(String fileName, ResponseList<Post> posts, Scanner scan) {
+	public static void saveFile(String fileName, ResponseList<Post> posts, Scanner scan) {
 		System.out.println("Guardar resultados en un archivo de texto? Si/No");
 		String option = scan.nextLine();
 		
