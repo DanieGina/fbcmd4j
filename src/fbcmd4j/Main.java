@@ -67,7 +67,9 @@ public class Main {
 						saveFile("Wall",wall,scan);
 						break;
 					case 3:
-						System.out.println("Escribe tu estado: ");					
+						System.out.println("Escribe tu estado: ");
+						String estado = scan.nextLine();
+						fb.postStatusMessage(estado);
 						break;
 					case 4:
 						System.out.println("Ingresa el link: ");
