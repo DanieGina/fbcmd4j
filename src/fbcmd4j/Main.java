@@ -1,6 +1,7 @@
  package fbcmd4j;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -25,7 +26,7 @@ public class Main {
 	public static void main(String[] args) {
 		logger.info("Iniciando app");
 		Properties props = null;
-
+		String dato;
 		try {
 			props = utils.loadConfigFile(CONFIG_DIR, CONFIG_FILE);
 		} catch (IOException ex) {
@@ -68,11 +69,16 @@ public class Main {
 						break;
 					case 3:
 						System.out.println("Escribe tu estado: ");
-						String estado = scan.nextLine();
-						fb.postStatusMessage(estado);
+						 dato = scan.nextLine();
+						fb.postStatusMessage(dato);
 						break;
 					case 4:
 						System.out.println("Ingresa el link: ");
+						dato = scan.nextLine();
+						String descripcion;						
+						System.out.println("Ingresa la descripcion del link: ");
+						descripcion = scan.nextLine();
+						fb.postLink(new URL(dato), descripcion);
 						break;
 					case 5:
 						System.out.println("Gracias por usar el cliente!");
