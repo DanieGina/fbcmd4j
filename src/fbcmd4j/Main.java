@@ -62,11 +62,12 @@ public class Main {
 						saveFile("Feeds",feeds,scan);
 						break;
 					case 2:
-						System.out.println("Mostrando Wall...");
-						
+						System.out.println("Obteniendo Wall");
+						ResponseList<Post> wall = fb.getPosts();
+						saveFile("Wall",wall,scan);
 						break;
 					case 3:
-						System.out.println("Escribe tu estado: ");
+						System.out.println("Escribe tu estado: ");					
 						break;
 					case 4:
 						System.out.println("Ingresa el link: ");
